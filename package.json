@@ -1,0 +1,42 @@
+{
+  "name": "browserify-angualr2-quickstart",
+  "version": "1.1.1",
+  "description": "anqular2 quickstart  application with browserify,tsify,budo",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify src/main.prod.ts src/vendor.ts -p tsify -p [ factor-bundle -o dist/main.js -o dist/vendor.js ] -o dist/common.js",
+    "start": "budo src/main.dev.ts:dist/app.js: --live --open --title=\"angualr2 Quickstart\"  --  -p tsify",
+    "preminify": "npm run build",
+    "minify": "uglifyjs dist/common.js dist/vendor.js  dist/main.js --mangle-props --name-cache > dist/app.min.js"
+  },
+  "keywords": [
+    "angualr2",
+    "quickstart",
+    "browserify",
+    "tsify",
+    "budo"
+  ],
+  "author": "Dimpu Aravind Buddha",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "^2.1.2",
+    "@angular/compiler": "^2.1.2",
+    "@angular/core": "^2.1.2",
+    "@angular/platform-browser": "^2.1.2",
+    "@angular/platform-browser-dynamic": "^2.1.2",
+    "core-js": "^2.4.1",
+    "rxjs": "5.0.0-beta.12",
+    "ts-helpers": "^1.1.2",
+    "zone.js": "0.6.21"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.34",
+    "browserify": "^3.7.0",
+    "budo": "^9.2.1",
+    "factor-bundle": "^2.5.0",
+    "tsify": "^2.0.2",
+    "tslint": "^3.15.1",
+    "typescript": "^2.0.9",
+    "uglify-js": "^2.7.4"
+  }
+}
